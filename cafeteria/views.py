@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Categoria
 
 def inicio(request):
-    return render(request, 'cafeteria/inicio.html', {})
+    categorias = Categoria.objects.all()
+    return render(request, 'cafeteria/inicio.html', {'categorias': categorias})
