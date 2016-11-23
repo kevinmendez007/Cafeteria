@@ -1,0 +1,16 @@
+{% extends 'cafeteria/base.html' %}
+
+{% block section %}
+    <h2>Producto</h2>
+    <hr>
+{% endblock section %}
+
+{% block maincontent %}
+    <div>
+        {% for c in object_list %}
+            <a href="{% url 'producto-detalle' pk=c.pk %}">
+                <p>{{ c.producto }}</p>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock maincontent %}

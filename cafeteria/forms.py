@@ -3,5 +3,5 @@ from .models import Categoria
 
 class CategoriaForm(forms.ModelForm):
     class Meta:
-        modelo = Categoria
-        campos = ('nombre', 'foto',)
+        model = Categoria
+        fields = ('categoria', 'foto')

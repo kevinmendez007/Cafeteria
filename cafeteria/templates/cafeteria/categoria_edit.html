@@ -1,0 +1,9 @@
+{% extends 'cafeteria/base.html' %}
+
+{% block content %}
+    <h1>Nueva Categoría</h1>
+    <form method="POST" class="post-form" action='' enctype="multipart/form-data">{% csrf_token %}
+        {{ formulario.as_p }}
+        <button type="submit" class="save btn btn-default">Guardar</button>
+    </form>
+{% endblock %}

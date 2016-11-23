@@ -1,0 +1,27 @@
+{% extends 'cafeteria/base.html' %}
+{% load static %}
+
+{% block section %}
+    <h2>{{ object.producto_set.all.cateogria }}</h2>
+    <hr>
+{% endblock section %}
+
+{% block maincontent %}
+    <div>
+        <table border="1px">
+        <tr>
+            {% for p in object.producto_set.all %}
+                <td>
+                    <div>{{ p.producto }}</div>
+                    <div>
+                        <a href="{% url 'producto-detalle' pk=p.id %}">
+                            <img src="{% static p.foto.url %}" style="width:200px;height:200px"/>
+                        </a>
+                    </div>
+                    <div>{{ p.descripcion }}</div>
+                </td>
+            {% endfor %}
+        </tr>
+    </table>
+    </div>
+{% endblock maincontent %}

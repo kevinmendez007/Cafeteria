@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
 
 class Categoria(models.Model):
     categoria = models.CharField(max_length=25)
@@ -16,6 +18,9 @@ class Producto(models.Model):
     def __str__(self):
         return self.producto
     
+    def get_absolute_url(self):
+        return reverse('producto-list')
+    
 class Cliente(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
@@ -27,3 +32,7 @@ class Cliente(models.Model):
     
     def __str__(self):
         return self.nombre
+    
+@receiver(post_delete, sender=Producto)
+def producto_delete(sender, instance, **kwargs):
+    instance.producto.delete(False)

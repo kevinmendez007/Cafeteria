@@ -1,0 +1,9 @@
+{% extends 'cafeteria/base.html' %}
+
+{% block maincontent %}
+    <form action="" method="post">{% csrf_token %}
+        <p>Eliminar "{{ object.producto }}"?</p>
+        <input type="submit" value="Confirm" />
+        <a class='btn' href="{% url 'producto-lista' %}">Cancel</a>
+    </form>
+{% endblock maincontent %}

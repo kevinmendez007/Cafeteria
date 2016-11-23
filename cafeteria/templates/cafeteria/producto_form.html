@@ -1,0 +1,9 @@
+{% extends "cafeteria/base.html" %}
+
+{% block content %}
+    <form enctype="multipart/form-data" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+        <a class='btn' href="{% url 'producto-list' %}">Cancelar</a>
+    </form>
+{% endblock content%}
