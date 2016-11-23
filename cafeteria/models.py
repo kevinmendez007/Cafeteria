@@ -15,7 +15,7 @@ class Producto(models.Model):
     descripcion = models.TextField()
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 
-    def __str__(self):
+    def __Uncode__(self):
         return self.producto
     
     def get_absolute_url(self):
